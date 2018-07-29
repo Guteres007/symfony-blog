@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+
+{% for message in app.flashes('notice') %}
+    <div class="flash-notice">
+        {{ message }}
+    </div>
+{% endfor %}
+
+
+<a href="{{path("add_article")}}">Add Article</a>
+
+{% for article in articles %}
+   <h2>{{article.title}}<h2>
+   <p>{{article.content}}</p>
+    <p>{{article.publishedAt|date("m/d/Y")}}</p>
+    <a href="{{path("show_article",{"id" : article.id}) }}">Show</a>
+    <a href="{{path("delete_article",{"id" : article.id}) }}">Remove</a>
+{%endfor%}
+{% endblock %}

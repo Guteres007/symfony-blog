@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+<a href="{{path("article")}}">Back</a>
+
+
+   <h2>{{article.title}}<h2>
+   <p>{{article.content}}</p>
+   <p>{{article.publishedAt|date("m/d/Y")}}</p>
+
+{% endblock %}
